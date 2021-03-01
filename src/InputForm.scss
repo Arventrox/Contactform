@@ -1,0 +1,254 @@
+//variables
+.error {
+  position: absolute;
+  color: red;
+  font-size: 0.6rem;
+}
+%input-font {
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+%form-group {
+  width: 80%;
+  height: 45%;
+
+  .form-group {
+    width: 100%;
+    height: 40%;
+
+    .radioButton {
+      position: offset;
+      display: flexbox;
+      width: 0;
+
+      min-width: none;
+    }
+
+    label {
+      @extend %input-font;
+    }
+
+    input {
+      font-family: 'Noto Sans JP', sans-serif;
+      min-width: 190px;
+      width: 100%;
+      display: block;
+      border: none;
+      padding: 10px 0;
+      border-bottom: solid 1px #fc00ff;
+      transition: all 0.6s cubic-bezier(0.64, 0.09, 0.08, 1);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 96%,
+        #c722ca 4%
+      );
+      background-position: -600px 0%;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      color: lighten(rgb(77, 50, 83), 10%);
+      &:focus,
+      &:valid {
+        box-shadow: none;
+        outline: none;
+        background-position: 0 0;
+        &::-webkit-input-placeholder {
+          color: #c722ca;
+          font-size: 11px;
+          transform: translateY(-20px);
+          visibility: visible !important;
+        }
+      }
+    }
+  }
+}
+
+//reset
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+//main page
+
+.container {
+  width: 60vw;
+  min-height: 75vh;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @extend %form-group;
+
+  .subcontainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  h1 {
+    width: 100%;
+    height: 30%;
+    background-color: indigo;
+    font-size: 40px;
+    padding: 10px 0;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+      grid-column: 1/3;
+      justify-self: start;
+      @extend %input-font;
+    }
+
+    .align-form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 5% 0 10% 0;
+
+      .left-container {
+        width: 50%;
+        height: 100%;
+        padding: 3%;
+        border-right: indigo 4px solid;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        column-gap: 40px;
+        row-gap: 12px;
+
+        .bdateP {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+          box-sizing: border-box;
+        }
+      }
+
+      .right-container {
+        display: grid;
+        width: 50%;
+        height: 100%;
+        padding: 3%;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        column-gap: 40px;
+        row-gap: 12px;
+      }
+    }
+    input[component='textarea'] {
+      width: 70%;
+      height: 10%;
+      font-family: Tahoma, sans-serif;
+      margin: 3% auto;
+      background: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-size: 1rem;
+      border-radius: 20px;
+      resize: vertical;
+      box-sizing: border-box;
+      padding: 0.65rem 0.5rem;
+    }
+
+    Button {
+      width: 60%;
+      height: 10%;
+      padding: 0.5%;
+      margin-bottom: 5%;
+      @extend %input-font;
+      font-size: 26px;
+      border: none;
+      background: indigo;
+      cursor: pointer;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
